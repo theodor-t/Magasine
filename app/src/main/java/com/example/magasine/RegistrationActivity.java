@@ -83,7 +83,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(RegistrationActivity.this,"Registration Successul", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this,"Registration Successful", Toast.LENGTH_SHORT).show();
                         }
                         else{
                             Toast.makeText(RegistrationActivity.this,"Error"+task.getException(), Toast.LENGTH_SHORT).show();
