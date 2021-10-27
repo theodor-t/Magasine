@@ -62,32 +62,32 @@ public class RegistrationActivity extends AppCompatActivity {
         String userEmail = email.getText().toString();
         String userPassword = password.getText().toString();
 
-        if(TextUtils.isEmpty(userName)){
-            Toast.makeText(this,"Name is Empty!", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(userName)) {
+            Toast.makeText(this, "Name is Empty!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(TextUtils.isEmpty(userEmail)){
-            Toast.makeText(this,"Email is Empty!", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(userEmail)) {
+            Toast.makeText(this, "Email is Empty!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(TextUtils.isEmpty(userPassword)){
-            Toast.makeText(this,"Password is Empty!", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(userPassword)) {
+            Toast.makeText(this, "Password is Empty!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(userPassword.length() < 6){
-            Toast.makeText(this,"Password Length must be greater then 6 letter", Toast.LENGTH_SHORT).show();
+        if (userPassword.length() < 6) {
+            Toast.makeText(this, "Password Length must be greater then 6 letter", Toast.LENGTH_SHORT).show();
             return;
         }
 
         //Create User
-        auth.createUserWithEmailAndPassword(userEmail,userPassword)
+        auth.createUserWithEmailAndPassword(userEmail, userPassword)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
 
                             UserModel userModel = new UserModel(userName, userEmail, userPassword);
 
@@ -95,10 +95,9 @@ public class RegistrationActivity extends AppCompatActivity {
 
                             database.getReference().child("Users").child(id).setValue(userModel);
 
-                            Toast.makeText(RegistrationActivity.this,"Registration Successful", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Toast.makeText(RegistrationActivity.this,"Error "+task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(RegistrationActivity.this, "Error " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
