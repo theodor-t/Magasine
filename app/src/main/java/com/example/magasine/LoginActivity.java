@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(LoginActivity.this,"Login Successfully", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(LoginActivity.this,"Error" +task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,"Error " +task.isSuccessful(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
