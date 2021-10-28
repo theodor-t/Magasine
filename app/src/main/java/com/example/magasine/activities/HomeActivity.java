@@ -1,4 +1,4 @@
-package com.example.magasine;
+package com.example.magasine.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.magasine.MainActivity;
+import com.example.magasine.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity  extends AppCompatActivity {
