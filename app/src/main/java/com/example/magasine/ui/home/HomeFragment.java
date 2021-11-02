@@ -17,6 +17,7 @@ import com.example.magasine.R;
 
 public class HomeFragment extends Fragment {
 
+    //popular items
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
