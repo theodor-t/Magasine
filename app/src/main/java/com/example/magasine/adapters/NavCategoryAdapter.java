@@ -30,7 +30,7 @@ public class NavCategoryAdapter extends RecyclerView.Adapter<NavCategoryAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.nav_cat_item, parent,false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.nav_cat_item, parent, false));
     }
 
     @Override
@@ -49,7 +49,7 @@ public class NavCategoryAdapter extends RecyclerView.Adapter<NavCategoryAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-        TextView name,description,discount;
+        TextView name, description, discount;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

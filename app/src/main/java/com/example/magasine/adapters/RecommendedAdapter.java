@@ -29,7 +29,7 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.recommended_item,parent,false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.recommended_item, parent, false));
     }
 
     @Override
@@ -48,7 +48,7 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-        TextView name,description,rating;
+        TextView name, description, rating;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

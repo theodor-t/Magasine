@@ -31,7 +31,7 @@ public class PopularAdapters extends RecyclerView.Adapter<PopularAdapters.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.popular_item,parent,false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.popular_item, parent, false));
     }
 
     @Override
@@ -60,6 +60,7 @@ public class PopularAdapters extends RecyclerView.Adapter<PopularAdapters.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView popImg;
         TextView name, description, rating, discount;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
