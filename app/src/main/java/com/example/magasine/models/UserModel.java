@@ -37,4 +37,8 @@ public class UserModel {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getProfileImg() {
+        return getProfileImg();
+    }
 }
