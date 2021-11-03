@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.magasine.R;
 import com.example.magasine.adapters.ViewAllAdapter;
@@ -19,6 +20,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ViewAllActivity extends AppCompatActivity {
 
@@ -28,10 +30,12 @@ public class ViewAllActivity extends AppCompatActivity {
     List<ViewAllModel> viewAllModelList;
     Toolbar toolbar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_all);
+
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -49,32 +53,30 @@ public class ViewAllActivity extends AppCompatActivity {
 
         //////Getting fruits
         if (type != null && type.equalsIgnoreCase("fruit")) {
-            firestore.collection("AllProducts").whereEqualTo("type", "fruit").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
-                        ViewAllModel viewAllModel = documentSnapshot.toObject(ViewAllModel.class);
-                        viewAllModelList.add(viewAllModel);
-                        viewAllAdapter.notifyDataSetChanged();
-                    }
+            firestore.collection("AllProducts").whereEqualTo("type", "fruit")
+                    .get().addOnCompleteListener(task -> {
+
+                for (DocumentSnapshot documentSnapshot : Objects.requireNonNull(task.getResult()).getDocuments()) {
+                    ViewAllModel viewAllModel = documentSnapshot.toObject(ViewAllModel.class);
+                    viewAllModelList.add(viewAllModel);
+                    viewAllAdapter.notifyDataSetChanged();
                 }
             });
         }
-            //////Getting vegetable
-            if (type != null && type.equalsIgnoreCase("vegetable")) {
-                firestore.collection("AllProducts").whereEqualTo("type", "vegetable").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+        //////Getting vegetable
+        if (type != null && type.equalsIgnoreCase("vegetable")) {
+            firestore.collection("AllProducts")
+                    .whereEqualTo("type", "vegetable")
+                    .get().addOnCompleteListener(task -> {
 
-                        for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
-                            ViewAllModel viewAllModel = documentSnapshot.toObject(ViewAllModel.class);
-                            viewAllModelList.add(viewAllModel);
-                            viewAllAdapter.notifyDataSetChanged();
-                        }
-                    }
-                });
-            }
+                for (DocumentSnapshot documentSnapshot : Objects.requireNonNull(task.getResult()).getDocuments()) {
+                    ViewAllModel viewAllModel = documentSnapshot.toObject(ViewAllModel.class);
+                    viewAllModelList.add(viewAllModel);
+                    viewAllAdapter.notifyDataSetChanged();
+                }
+            });
+        }
         //////Getting fish
         if (type != null && type.equalsIgnoreCase("fish")) {
             firestore.collection("AllProducts").whereEqualTo("type", "fish").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -118,5 +120,12 @@ public class ViewAllActivity extends AppCompatActivity {
             });
         }
 
-        }
+
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+}

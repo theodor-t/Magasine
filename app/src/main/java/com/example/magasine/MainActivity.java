@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         View headerView = navigationView.getHeaderView(0);
         TextView headerName = headerView.findViewById(R.id.nav_header_name);
         TextView headerEmail = headerView.findViewById(R.id.nav_header_email);
-        CircleImageView headerImg = headerView.findViewById(R.id.nav_header_img);
+        // CircleImageView headerImg = headerView.findViewById(R.id.nav_header_img);
 
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
                         headerName.setText(userModel.getName());
                         headerEmail.setText(userModel.getEmail());
-                        Glide.with(MainActivity.this).load(userModel.getProfileImg()).into(headerImg);
+                        //Glide.with(MainActivity.this).load(userModel.getProfileImg()).into(headerImg);
                     }
 
                     @Override
@@ -105,11 +105,12 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         }
-        if (id == R.id.logout) {
-            auth.signOut();
-            startActivity(new Intent(MainActivity.this, HomeActivity.class));
-            finish();
-        }
+        //if (id == R.id.logout) {
+        //auth.signOut();
+        //startActivity(new Intent(MainActivity.this, HomeActivity.class));
+        //finish();
+        //}
+
         return true;
     }
 
