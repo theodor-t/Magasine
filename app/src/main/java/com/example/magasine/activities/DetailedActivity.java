@@ -5,6 +5,7 @@ import androidx.appcompat.widget.ButtonBarLayout;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,11 +17,15 @@ import com.example.magasine.models.ViewAllModel;
 public class DetailedActivity extends AppCompatActivity {
 
 
+    TextView quantity;
+    int totalQuantity = 1;
+
     ImageView detailedImg;
     TextView price, description, rating;
     Button addToCart;
     ImageView addItem, removeItem;
     Toolbar toolbar;
+
     ViewAllModel viewAllModel = null;
 
     @Override
@@ -38,6 +43,8 @@ public class DetailedActivity extends AppCompatActivity {
             viewAllModel = (ViewAllModel) object;
         }
 
+
+        quantity = findViewById(R.id.quantity);
         detailedImg = findViewById(R.id.detailed_img);
         addItem = findViewById(R.id.add_item);
         removeItem = findViewById(R.id.remove_item);
@@ -53,9 +60,28 @@ public class DetailedActivity extends AppCompatActivity {
             price.setText("Price :$"+viewAllModel.getPrice());
         }
 
+
         addToCart = findViewById(R.id.add_to_cart);
 
+        addItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                if (totalQuantity < 10){
+                    totalQuantity++;
+                    quantity.setText(String.valueOf(totalQuantity));
+                }
+            }
+        });
+        removeItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (totalQuantity > 0){
+                    totalQuantity--;
+                    quantity.setText(String.valueOf(totalQuantity));
+                }
+            }
+        });
     }
 
     @Override
