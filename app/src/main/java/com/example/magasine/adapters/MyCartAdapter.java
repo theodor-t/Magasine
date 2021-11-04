@@ -39,7 +39,6 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
         holder.time.setText(cartModelList.get(position).getCurrentTime());
         holder.quantity.setText(cartModelList.get(position).getTotalQuantity());
         holder.totalPrice.setText(String.valueOf(cartModelList.get(position).getTotalPrice()));
-
     }
 
     @Override
