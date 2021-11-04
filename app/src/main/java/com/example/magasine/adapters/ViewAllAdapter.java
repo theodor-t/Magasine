@@ -1,6 +1,7 @@
 package com.example.magasine.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.magasine.R;
+import com.example.magasine.activities.DetailedActivity;
 import com.example.magasine.models.ViewAllModel;
 
 import java.util.List;
@@ -47,6 +49,15 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHold
         if (list.get(position).getType().equals("milk")) {
             holder.price.setText(list.get(position).getPrice() + "/litre");
         }
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailedActivity.class);
+                intent.putExtra("detail",list.get(position));
+                context.startActivity(intent);
+            }
+        });
 
     }
 
