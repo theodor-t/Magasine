@@ -45,13 +45,13 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/total_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/purple_700"
             android:fontFamily="@font/alice"
             android:padding="10dp"
-            android:text="Total Price :$300"
+            android:text="Total Bill :$0"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="28sp"
