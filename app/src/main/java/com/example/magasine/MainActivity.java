@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         View headerView = navigationView.getHeaderView(0);
         TextView headerName = headerView.findViewById(R.id.nav_header_name);
         TextView headerEmail = headerView.findViewById(R.id.nav_header_email);
-        // CircleImageView headerImg = headerView.findViewById(R.id.nav_header_img);
+        //CircleImageView headerImg = headerView.findViewById(R.id.nav_header_img);
 
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
