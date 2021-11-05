@@ -44,6 +44,6 @@ public class UserModel {
     }
 
     public String getProfileImg() {
-        return getProfileImg();
+        return profileImg;
     }
 }
