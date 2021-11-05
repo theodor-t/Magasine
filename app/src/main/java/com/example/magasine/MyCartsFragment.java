@@ -43,7 +43,6 @@ public class MyCartsFragment extends Fragment {
     List<MyCartModel> cartModelList;
     ProgressBar progressBar;
     Button buyNow;
-    int totalBill;
 
     public MyCartsFragment() {
         // Required empty public constructor
@@ -61,7 +60,9 @@ public class MyCartsFragment extends Fragment {
         progressBar.setVisibility(View.VISIBLE);
 
 
+
         recyclerView = root.findViewById(R.id.recyclerview);
+        buyNow = root.findViewById(R.id.buy_now);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         overTotalAmount = root.findViewById(R.id.total_price);
