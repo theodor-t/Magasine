@@ -64,18 +64,18 @@ public class LoginActivity extends AppCompatActivity {
         String userEmail = email.getText().toString();
         String userPassword = password.getText().toString();
 
-        if(TextUtils.isEmpty(userEmail)){
-            Toast.makeText(this,"Email is Empty!", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(userEmail)) {
+            Toast.makeText(this, "Email is Empty!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(TextUtils.isEmpty(userPassword)){
-            Toast.makeText(this,"Password is Empty!", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(userPassword)) {
+            Toast.makeText(this, "Password is Empty!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(userPassword.length() < 6){
-            Toast.makeText(this,"Password Length must be greater then 6 letter", Toast.LENGTH_SHORT).show();
+        if (userPassword.length() < 6) {
+            Toast.makeText(this, "Password Length must be greater then 6 letter", Toast.LENGTH_SHORT).show();
             return;
         }
         //Login User
@@ -84,12 +84,12 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(LoginActivity.this,"Login Successfully", Toast.LENGTH_SHORT).show();
-                        }else{
+                            Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                        } else {
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(LoginActivity.this,"Error " +task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Error " + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -57,7 +57,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name,price,date,time,quantity,totalPrice;
+        TextView name, price, date, time, quantity, totalPrice;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

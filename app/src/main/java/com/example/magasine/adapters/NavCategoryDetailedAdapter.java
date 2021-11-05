@@ -17,7 +17,7 @@ import com.example.magasine.models.NavCategoryDetailedModel;
 
 import java.util.List;
 
-public class NavCategoryDetailedAdapter  extends RecyclerView.Adapter<NavCategoryDetailedAdapter.ViewHolder> {
+public class NavCategoryDetailedAdapter extends RecyclerView.Adapter<NavCategoryDetailedAdapter.ViewHolder> {
 
     Context context;
     List<NavCategoryDetailedModel> list;
@@ -30,7 +30,7 @@ public class NavCategoryDetailedAdapter  extends RecyclerView.Adapter<NavCategor
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.nav_category_detailed_item,parent,false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.nav_category_detailed_item, parent, false));
     }
 
     @Override
@@ -48,7 +48,7 @@ public class NavCategoryDetailedAdapter  extends RecyclerView.Adapter<NavCategor
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-        TextView name,price;
+        TextView name, price;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

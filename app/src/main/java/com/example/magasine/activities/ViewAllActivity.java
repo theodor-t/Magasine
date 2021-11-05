@@ -34,7 +34,6 @@ public class ViewAllActivity extends AppCompatActivity {
     ProgressBar progressBar;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

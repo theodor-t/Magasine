@@ -12,7 +12,7 @@ import com.example.magasine.MainActivity;
 import com.example.magasine.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class HomeActivity  extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     ProgressBar progressBar;
     FirebaseAuth auth;
 
@@ -25,7 +25,7 @@ public class HomeActivity  extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressbar);
         progressBar.setVisibility(View.GONE);
-        if (auth.getCurrentUser() != null){
+        if (auth.getCurrentUser() != null) {
             progressBar.setVisibility(View.VISIBLE);
             startActivity(new Intent(HomeActivity.this, MainActivity.class));
             Toast.makeText(this, "please wait you are already logged in", Toast.LENGTH_SHORT).show();

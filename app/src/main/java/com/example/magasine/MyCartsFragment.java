@@ -59,8 +59,6 @@ public class MyCartsFragment extends Fragment {
         progressBar = root.findViewById(R.id.progressbar);
         progressBar.setVisibility(View.VISIBLE);
 
-
-
         recyclerView = root.findViewById(R.id.recyclerview);
         buyNow = root.findViewById(R.id.buy_now);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -71,7 +69,7 @@ public class MyCartsFragment extends Fragment {
                 .registerReceiver(mMessageReceiver, new IntentFilter("MyTotalAmount"));
 
         cartModelList = new ArrayList<>();
-        cartAdapter = new MyCartAdapter(getActivity(),cartModelList);
+        cartAdapter = new MyCartAdapter(getActivity(), cartModelList);
         recyclerView.setAdapter(cartAdapter);
         recyclerView.setVisibility(View.GONE);
 
@@ -80,8 +78,8 @@ public class MyCartsFragment extends Fragment {
                 .collection("AddToCart").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()){
-                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
                         MyCartModel cartModel = documentSnapshot.toObject(MyCartModel.class);
                         cartModelList.add(cartModel);
                         cartAdapter.notifyDataSetChanged();
@@ -105,8 +103,8 @@ public class MyCartsFragment extends Fragment {
     public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            int totalBill = intent.getIntExtra("totalAmount",0);
-            overTotalAmount.setText("Total Bill :" + totalBill+"$");
+            int totalBill = intent.getIntExtra("totalAmount", 0);
+            overTotalAmount.setText("Total Bill :" + totalBill + "$");
         }
     };
 }

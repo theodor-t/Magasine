@@ -33,8 +33,8 @@ public class PlacedOrderActivity extends AppCompatActivity {
 
         List<MyCartModel> list = (ArrayList<MyCartModel>) getIntent().getSerializableExtra("itemList");
 
-        if (list != null && list.size() > 0){
-            for (MyCartModel model : list){
+        if (list != null && list.size() > 0) {
+            for (MyCartModel model : list) {
                 final HashMap<String, Object> cartMap = new HashMap<>();
 
                 cartMap.put("productName", model.getProductName());
@@ -48,7 +48,7 @@ public class PlacedOrderActivity extends AppCompatActivity {
                         .collection("MyOrder").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
-                        Toast.makeText(PlacedOrderActivity.this, "Your Order Has Been Placed",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PlacedOrderActivity.this, "Your Order Has Been Placed", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
