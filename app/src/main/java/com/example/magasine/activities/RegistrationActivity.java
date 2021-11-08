@@ -55,8 +55,8 @@ public class RegistrationActivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 createUser();
+                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
                 progressBar.setVisibility(View.VISIBLE);
             }
         });
