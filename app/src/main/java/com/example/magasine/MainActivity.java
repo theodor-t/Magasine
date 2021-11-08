@@ -7,9 +7,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.magasine.activities.HomeActivity;
+import com.example.magasine.activities.RegistrationActivity;
 import com.example.magasine.models.UserModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -105,12 +107,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         }
-        if (id == R.id.logout) {
-        auth.signOut();
-        startActivity(new Intent(MainActivity.this, HomeActivity.class));
-        finish();
-        }
-
         return true;
     }
 
@@ -119,5 +115,11 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void logout(View view) {
+        auth.signOut();
+        Toast.makeText(this, "Success Log Out!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(MainActivity.this, HomeActivity.class));
     }
 }

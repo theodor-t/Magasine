@@ -25,10 +25,11 @@
         app:itemTextColor="@color/white"
         app:itemIconTint="@color/white">
         <Button
-            android:id="@+id/logout"
+            android:id="@+id/sign_out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:onClick="logout"
             android:text="Sign Out"
             android:textAllCaps="false"
             android:padding="15dp"
