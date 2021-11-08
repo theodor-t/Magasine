@@ -105,11 +105,11 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         }
-        //if (id == R.id.logout) {
-        //auth.signOut();
-        //startActivity(new Intent(MainActivity.this, HomeActivity.class));
-        //finish();
-        //}
+        if (id == R.id.logout) {
+        auth.signOut();
+        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+        finish();
+        }
 
         return true;
     }
