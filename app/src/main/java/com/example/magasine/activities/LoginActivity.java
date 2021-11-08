@@ -55,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 loginUser();
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 progressBar.setVisibility(View.VISIBLE);
             }
         });
