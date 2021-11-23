@@ -4,5 +4,7 @@
         <item>@font/aclonica</item>
         <item>@font/alice</item>
         <item>@font/lobster</item>
+        <item>@font/montserrat</item>
+        <item>@font/montserrat_bold</item>
     </array>
 </resources>

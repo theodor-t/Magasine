@@ -3,9 +3,13 @@ package com.example.magasine.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import com.example.magasine.MainActivity;
+import com.example.magasine.MyCartsFragment;
 import com.example.magasine.R;
 import com.example.magasine.models.MyCartModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -54,5 +58,8 @@ public class PlacedOrderActivity extends AppCompatActivity {
             }
 
         }
+    }
+    public void gotoHome(View view) {
+        startActivity(new Intent(PlacedOrderActivity.this, MainActivity.class));
     }
 }
