@@ -4,21 +4,16 @@ package com.example.magasine.ui.home;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -73,7 +68,6 @@ public class HomeFragment extends Fragment {
 
         popularRec = root.findViewById(R.id.pop_rec);
         homeCatRec = root.findViewById(R.id.explore_rec);
-        recommendedRec = root.findViewById(R.id.recommended_rec);
         scrollView = root.findViewById(R.id.scroll_view);
         progressBar = root.findViewById(R.id.progressbar);
 
@@ -122,29 +116,6 @@ public class HomeFragment extends Fragment {
                                 HomeCategory homeCategory = document.toObject(HomeCategory.class);
                                 categoryList.add(homeCategory);
                                 homeAdapter.notifyDataSetChanged();
-                            }
-                        } else {
-                            Toast.makeText(getActivity(), "Error" + task.getException(), Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
-        //Recommended
-        recommendedRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
-        recommendedModelList = new ArrayList<>();
-        recommendedAdapter = new RecommendedAdapter(getActivity(), recommendedModelList);
-        recommendedRec.setAdapter(recommendedAdapter);
-
-        db.collection("Recommended")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                RecommendedModel recommendedModel = document.toObject(RecommendedModel.class);
-                                recommendedModelList.add(recommendedModel);
-                                recommendedAdapter.notifyDataSetChanged();
                                 progressBar.setVisibility(View.GONE);
                                 scrollView.setVisibility(View.VISIBLE);
                             }
@@ -154,15 +125,23 @@ public class HomeFragment extends Fragment {
                         }
                     }
                 });
+        //Recommended
+//        recommendedRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
+      //  recommendedModelList = new ArrayList<>();
+  //      recommendedAdapter = new RecommendedAdapter(getActivity(), recommendedModelList);
+      //  recommendedRec.setAdapter(recommendedAdapter);
+
+
 
         //////////////////////Search View
-        recyclerViewSearch = root.findViewById(R.id.search_rec);
+       // recyclerViewSearch = root.findViewById(R.id.search_rec);
         search_box = root.findViewById(R.id.search_box);
         viewAllModelList = new ArrayList<>();
         viewAllAdapter = new ViewAllAdapter(getContext(),viewAllModelList);
-        recyclerViewSearch.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerViewSearch.setAdapter(viewAllAdapter);
-        recyclerViewSearch.setHasFixedSize(true);
+//        recyclerViewSearch.setLayoutManager(new LinearLayoutManager(getContext()));
+//        recyclerViewSearch.setAdapter(viewAllAdapter);
+  //      recyclerViewSearch.setHasFixedSize(true);
+
         search_box.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -187,7 +166,6 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
-
     private void searchProduct(String type) {
         if(!type.isEmpty()){
             db.collection("AllProducts").whereEqualTo("type",type).get()
