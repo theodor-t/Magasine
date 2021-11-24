@@ -41,7 +41,6 @@ public class MyCartsFragment extends Fragment {
     RecyclerView recyclerView;
     MyCartAdapter cartAdapter;
     List<MyCartModel> cartModelList;
-    ProgressBar progressBar;
     Button buyNow;
 
     public MyCartsFragment() {
@@ -56,8 +55,6 @@ public class MyCartsFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
-        progressBar = root.findViewById(R.id.progressbar);
-        progressBar.setVisibility(View.VISIBLE);
 
         recyclerView = root.findViewById(R.id.recyclerview);
         buyNow = root.findViewById(R.id.buy_now);
@@ -86,7 +83,6 @@ public class MyCartsFragment extends Fragment {
                         cartModel.setDocumentId(documentId);
                         cartModelList.add(cartModel);
                         cartAdapter.notifyDataSetChanged();
-                        progressBar.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.VISIBLE);
                     }
 
@@ -112,6 +108,6 @@ public class MyCartsFragment extends Fragment {
             totalAmount += myCartModel.getTotalPrice();
         }
 
-        overTotalAmount.setText("Total Amount :" + totalAmount);
+        overTotalAmount.setText(totalAmount + " MDL");
     }
 }
