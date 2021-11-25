@@ -21,9 +21,9 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"
-        android:background="@color/gray"
-        app:itemTextColor="@color/white"
-        app:itemIconTint="@color/white">
+        android:background="@color/white"
+        app:itemTextColor="@color/black"
+        app:itemIconTint="@color/black">
         <Button
             android:id="@+id/sign_out"
             android:layout_width="match_parent"
